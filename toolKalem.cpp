@@ -328,14 +328,14 @@ connect(toolButton, &QToolButton::clicked, [=]() {
 QToolButton *fenButton = new QToolButton(this);
 fenButton=butonToolSlot(fenButton,"Araç",":icons/fen.svg",QColor(255,0,0,0),en*1.5,boy);
 connect(fenButton, &QToolButton::clicked, [=]() {
-    current_toolKalemMenu->toolKalemMenuOlustur(fenTopMenu(parenth*0.045),parentw*0.3,parenth*0.045,parentw,parenth);
+    current_toolKalemMenu->toolKalemMenuOlustur(fenTopMenu(parenth*0.045),parentw*0.5,parenth*0.045,parentw,parenth);
     current_toolKalemMenu->show();
    });
 
 QToolButton *sosyalButton = new QToolButton(this);
 sosyalButton=butonToolSlot(sosyalButton,"Araç",":icons/sosyal.svg",QColor(255,0,0,0),en*1.5,boy);
 connect(sosyalButton, &QToolButton::clicked, [=]() {
-    current_toolKalemMenu->toolKalemMenuOlustur(sosyalTopMenu(parenth*0.045),parentw*0.5,parenth*0.045,parentw,parenth);
+    current_toolKalemMenu->toolKalemMenuOlustur(sosyalTopMenu(parenth*0.045),parentw*0.8,parenth*0.045,parentw,parenth);
     current_toolKalemMenu->show();
    });
 

@@ -86,5 +86,14 @@
         <file>icons/exit.svg</file>
         <file>icons/color.svg</file>
         <file>icons/font.svg</file>
+        <file>icons/haritabeylikler.svg</file>
+        <file>icons/haritaturkgocu.png</file>
+        <file>icons/haritaturkyurdu400.jpg</file>
+        <file>icons/haritaturkyurdu900.jpg</file>
+        <file>icons/harita1dunyasavasi.jpeg</file>
+        <file>icons/fenkan.jpg</file>
+        <file>icons/fenhucre.svg</file>
+        <file>icons/fenay.jpg</file>
+        <file>icons/haritaturizm.png</file>
     </qresource>
 </RCC>

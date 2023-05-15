@@ -823,10 +823,34 @@ QWidget *toolKalem::fenTopMenu(int _boy)
     });
 
 
+    QPushButton *fenkanButton=new QPushButton();
+    fenkanButton=butonSlot(fenkanButton,"",":icons/fenkan.jpg",QColor(255,0,0,0),e,b,e,b);
+    connect(fenkanButton, &QPushButton::clicked, [=]() {
+        addObjectScene(":icons/fenkan.jpg",Scene::Mode::FenMode,DiagramItem::DiagramType::Resim,parenth*0.8,parenth*0.8,parentw*0.1,parenth*0.07,true);
+        emit kalemZeminModeSignal(DiagramItem::DiagramType::WhitePage);
+        handButtonSlot(false);
+    });
+    QPushButton *fenayButton=new QPushButton();
+    fenayButton=butonSlot(fenayButton,"",":icons/fenay.jpg",QColor(255,0,0,0),e,b,e,b);
+    connect(fenayButton, &QPushButton::clicked, [=]() {
+        addObjectScene(":icons/fenay.jpg",Scene::Mode::FenMode,DiagramItem::DiagramType::Resim,parenth*0.8,parenth*0.8,parentw*0.1,parenth*0.07,true);
+        emit kalemZeminModeSignal(DiagramItem::DiagramType::WhitePage);
+        handButtonSlot(false);
+    });
+    QPushButton *fenhucreButton=new QPushButton();
+    fenhucreButton=butonSlot(fenhucreButton,"",":icons/fenhucre.svg",QColor(255,0,0,0),e,b,e,b);
+    connect(fenhucreButton, &QPushButton::clicked, [=]() {
+        addObjectScene(":icons/fenhucre.svg",Scene::Mode::FenMode,DiagramItem::DiagramType::Resim,parenth*0.8,parenth*0.8,parentw*0.1,parenth*0.07,true);
+        emit kalemZeminModeSignal(DiagramItem::DiagramType::WhitePage);
+        handButtonSlot(false);
+    });
     QLabel *periyodikcetvelLabel=new QLabel("Periyodik Tablo");      periyodikcetvelLabel->setFont(ff);
     QLabel *hidrojenLabel=new QLabel("Hidrojen");      hidrojenLabel->setFont(ff);
     QLabel *oksijenLabel=new QLabel("Oksijen");      oksijenLabel->setFont(ff);
     QLabel *azotLabel=new QLabel("Azot");      azotLabel->setFont(ff);
+    QLabel *fenayLabel=new QLabel("Ay Evresi");      fenayLabel->setFont(ff);
+    QLabel *fenkanLabel=new QLabel("Kan Dolaşımı");      fenkanLabel->setFont(ff);
+    QLabel *fenhucreLabel=new QLabel("Hücre Yapısı");      fenhucreLabel->setFont(ff);
 
     auto layout = new QGridLayout(menu);
     layout->setContentsMargins(5, 3, 5, 1);
@@ -834,11 +858,17 @@ QWidget *toolKalem::fenTopMenu(int _boy)
     layout->addWidget(hidrojenButton, 0, 2,1,1,Qt::AlignHCenter);
     layout->addWidget(oksijenButton, 0, 3,1,1,Qt::AlignHCenter);
     layout->addWidget(azotButton, 0, 4,1,1,Qt::AlignHCenter);
+    layout->addWidget(fenayButton, 0, 10,1,1,Qt::AlignHCenter);
+    layout->addWidget(fenkanButton, 0, 11,1,1,Qt::AlignHCenter);
+    layout->addWidget(fenhucreButton, 0, 12,1,1,Qt::AlignHCenter);
 
     layout->addWidget(periyodikcetvelLabel,1,1,1,1,Qt::AlignHCenter);
     layout->addWidget(hidrojenLabel,1,2,1,1,Qt::AlignHCenter);
     layout->addWidget(oksijenLabel,1,3,1,1,Qt::AlignHCenter);
     layout->addWidget(azotLabel,1,4,1,1,Qt::AlignHCenter);
+    layout->addWidget(fenayLabel,1,10,1,1,Qt::AlignHCenter);
+    layout->addWidget(fenkanLabel,1,11,1,1,Qt::AlignHCenter);
+    layout->addWidget(fenhucreLabel,1,12,1,1,Qt::AlignHCenter);
 
     //  layout->setColumnStretch(6, 255);
     //menu->setFixedSize(QSize(e*10,b*2));
@@ -915,13 +945,7 @@ QWidget *toolKalem::sosyalTopMenu(int _boy)
         emit kalemZeminModeSignal(DiagramItem::DiagramType::WhitePage);
         penButtonSlot(false);
     });
-    QPushButton *haritabosdilsizButton=new QPushButton();
-    haritabosdilsizButton=butonSlot(haritabosdilsizButton,"",":icons/haritabosdilsiz.svg",QColor(255,0,0,0),e,b,e,b);
-    connect(haritabosdilsizButton, &QPushButton::clicked, [=]() {
-        addObjectScene(":icons/haritabosdilsiz.svg",Scene::Mode::SekilMode,DiagramItem::DiagramType::Resim,parentw*0.9,parenth*0.8,parentw*0.05,parenth*0.07,true);
-        emit kalemZeminModeSignal(DiagramItem::DiagramType::WhitePage);
-        penButtonSlot(false);
-    });
+
     QPushButton *haritabolgeButton=new QPushButton();
     haritabolgeButton=butonSlot(haritabolgeButton,"",":icons/haritabolge.svg",QColor(255,0,0,0),e,b,e,b);
     connect(haritabolgeButton, &QPushButton::clicked, [=]() {
@@ -930,7 +954,59 @@ QWidget *toolKalem::sosyalTopMenu(int _boy)
         penButtonSlot(false);
     });
 
+    QPushButton *haritabeyliklerButton=new QPushButton();
+    haritabeyliklerButton=butonSlot(haritabeyliklerButton,"",":icons/haritabeylikler.svg",QColor(255,0,0,0),e,b,e,b);
+    connect(haritabeyliklerButton, &QPushButton::clicked, [=]() {
+        addObjectScene(":icons/haritabeylikler.svg",Scene::Mode::SekilMode,DiagramItem::DiagramType::Resim,parentw*0.9,parenth*0.8,parentw*0.05,parenth*0.07,true);
+        emit kalemZeminModeSignal(DiagramItem::DiagramType::WhitePage);
+        penButtonSlot(false);
+    });
+    QPushButton *haritaturizmButton=new QPushButton();
+    haritaturizmButton=butonSlot(haritaturizmButton,"",":icons/haritaturizm.png",QColor(255,0,0,0),e,b,e,b);
+    connect(haritaturizmButton, &QPushButton::clicked, [=]() {
+        addObjectScene(":icons/haritaturizm.png",Scene::Mode::SekilMode,DiagramItem::DiagramType::Resim,parentw*0.9,parenth*0.8,parentw*0.05,parenth*0.07,true);
+        emit kalemZeminModeSignal(DiagramItem::DiagramType::WhitePage);
+        penButtonSlot(false);
+    });
 
+    QPushButton *haritaturkgocuButton=new QPushButton();
+    haritaturkgocuButton=butonSlot(haritaturkgocuButton,"",":icons/haritaturkgocu.png",QColor(255,0,0,0),e,b,e,b);
+    connect(haritaturkgocuButton, &QPushButton::clicked, [=]() {
+        addObjectScene(":icons/haritaturkgocu.png",Scene::Mode::SekilMode,DiagramItem::DiagramType::Resim,parentw*0.9,parenth*0.8,parentw*0.05,parenth*0.07,true);
+        emit kalemZeminModeSignal(DiagramItem::DiagramType::WhitePage);
+        penButtonSlot(false);
+    });
+
+    QPushButton *haritaturkyurdu400Button=new QPushButton();
+    haritaturkyurdu400Button=butonSlot(haritaturkyurdu400Button,"",":icons/haritaturkyurdu400.jpg",QColor(255,0,0,0),e,b,e,b);
+    connect(haritaturkyurdu400Button, &QPushButton::clicked, [=]() {
+        addObjectScene(":icons/haritaturkyurdu400.jpg",Scene::Mode::SekilMode,DiagramItem::DiagramType::Resim,parentw*0.9,parenth*0.8,parentw*0.05,parenth*0.07,true);
+        emit kalemZeminModeSignal(DiagramItem::DiagramType::WhitePage);
+        penButtonSlot(false);
+    });
+
+    QPushButton *haritaturkyurdu900Button=new QPushButton();
+    haritaturkyurdu900Button=butonSlot(haritaturkyurdu900Button,"",":icons/haritaturkyurdu900.jpg",QColor(255,0,0,0),e,b,e,b);
+    connect(haritaturkyurdu900Button, &QPushButton::clicked, [=]() {
+        addObjectScene(":icons/haritaturkyurdu900.jpg",Scene::Mode::SekilMode,DiagramItem::DiagramType::Resim,parentw*0.9,parenth*0.8,parentw*0.05,parenth*0.07,true);
+        emit kalemZeminModeSignal(DiagramItem::DiagramType::WhitePage);
+        penButtonSlot(false);
+    });
+    QPushButton *harita1dunyasavasiButton=new QPushButton();
+    harita1dunyasavasiButton=butonSlot(harita1dunyasavasiButton,"",":icons/harita1dunyasavasi.jpeg",QColor(255,0,0,0),e,b,e,b);
+    connect(harita1dunyasavasiButton, &QPushButton::clicked, [=]() {
+        addObjectScene(":icons/harita1dunyasavasi.jpeg",Scene::Mode::SekilMode,DiagramItem::DiagramType::Resim,parentw*0.9,parenth*0.8,parentw*0.05,parenth*0.07,true);
+        emit kalemZeminModeSignal(DiagramItem::DiagramType::WhitePage);
+        penButtonSlot(false);
+    });
+
+    QPushButton *haritabosdilsizButton=new QPushButton();
+    haritabosdilsizButton=butonSlot(haritabosdilsizButton,"",":icons/haritabosdilsiz.svg",QColor(255,0,0,0),e,b,e,b);
+    connect(haritabosdilsizButton, &QPushButton::clicked, [=]() {
+        addObjectScene(":icons/haritabosdilsiz.svg",Scene::Mode::SekilMode,DiagramItem::DiagramType::Resim,parentw*0.9,parenth*0.8,parentw*0.05,parenth*0.07,true);
+        emit kalemZeminModeSignal(DiagramItem::DiagramType::WhitePage);
+        penButtonSlot(false);
+    });
 
     QLabel *haritadilsizLabel=new QLabel("Dilsiz");  haritadilsizLabel->setFont(ff);
     QLabel *haritabosdilsizLabel=new QLabel("B.Dilsiz");  haritabosdilsizLabel->setFont(ff);
@@ -944,6 +1020,13 @@ QWidget *toolKalem::sosyalTopMenu(int _boy)
     QLabel *haritabitkiortusuLabel=new QLabel("B.Örtüsü");  haritabitkiortusuLabel->setFont(ff);
     QLabel *haritamadenLabel=new QLabel("Maden");  haritamadenLabel->setFont(ff);
 
+    QLabel *haritaturizmLabel=new QLabel("Turizm");  haritaturizmLabel->setFont(ff);
+    QLabel *haritaturkgocuLabel=new QLabel("Göç");  haritaturkgocuLabel->setFont(ff);
+    QLabel *hharitaturkyurdu400Label=new QLabel("H400");  hharitaturkyurdu400Label->setFont(ff);
+    QLabel *haritaturkyurdu900Label=new QLabel("H900");  haritaturkyurdu900Label->setFont(ff);
+    QLabel *haritabeyliklerLabel=new QLabel("Beylikler");  haritabeyliklerLabel->setFont(ff);
+    QLabel *harita1dunyasavasiLabel=new QLabel("1.Dünya");  harita1dunyasavasiLabel->setFont(ff);
+
     auto layout = new QGridLayout(menu);
     layout->setContentsMargins(5, 3, 5, 1);
     layout->addWidget(haritadilsizButton, 0, 5,1,1,Qt::AlignHCenter);
@@ -956,6 +1039,12 @@ QWidget *toolKalem::sosyalTopMenu(int _boy)
     layout->addWidget(haritaovaButton, 0, 20,1,1,Qt::AlignHCenter);
     layout->addWidget(haritabitkiortusuButton, 0, 21,1,1,Qt::AlignHCenter);
     layout->addWidget(haritamadenButton, 0, 22,1,1,Qt::AlignHCenter);
+    layout->addWidget(haritaturizmButton, 0, 23,1,1,Qt::AlignHCenter);
+    layout->addWidget(haritaturkgocuButton, 0, 25,1,1,Qt::AlignHCenter);
+    layout->addWidget(haritaturkyurdu400Button, 0, 26,1,1,Qt::AlignHCenter);
+    layout->addWidget(haritaturkyurdu900Button, 0, 27,1,1,Qt::AlignHCenter);
+    layout->addWidget(haritabeyliklerButton, 0, 28,1,1,Qt::AlignHCenter);
+    layout->addWidget(harita1dunyasavasiButton, 0, 29,1,1,Qt::AlignHCenter);
 
     layout->addWidget(haritadilsizLabel,1,5,1,1,Qt::AlignHCenter);
     layout->addWidget(haritabosdilsizLabel,1,6,1,1,Qt::AlignHCenter);
@@ -967,6 +1056,17 @@ QWidget *toolKalem::sosyalTopMenu(int _boy)
     layout->addWidget(haritaovaLabel,1,20,1,1,Qt::AlignHCenter);
     layout->addWidget(haritabitkiortusuLabel,1,21,1,1,Qt::AlignHCenter);
     layout->addWidget(haritamadenLabel,1,22,1,1,Qt::AlignHCenter);
+    layout->addWidget(haritaturizmLabel,1,23,1,1,Qt::AlignHCenter);
+    layout->addWidget(haritaturkgocuLabel,1,25,1,1,Qt::AlignHCenter);
+    layout->addWidget(hharitaturkyurdu400Label,1,26,1,1,Qt::AlignHCenter);
+    layout->addWidget(haritaturkyurdu900Label,1,27,1,1,Qt::AlignHCenter);
+    layout->addWidget(haritabeyliklerLabel,1,28,1,1,Qt::AlignHCenter);
+    layout->addWidget(harita1dunyasavasiLabel,1,29,1,1,Qt::AlignHCenter);
+
+
+
+
+
 
     //  layout->setColumnStretch(6, 255);
     //menu->setFixedSize(QSize(e*10,b*2));
