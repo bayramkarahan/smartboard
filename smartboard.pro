@@ -24,6 +24,7 @@ SOURCES += main.cpp\
     depo.cpp \
     dotsignal.cpp \
     gridlines.cpp \
+    hakkinda.cpp \
     mainwindow.cpp \
     popupmenu.cpp \
     scene.cpp \
@@ -41,6 +42,7 @@ HEADERS  += \
     dotsignal.h \
     filecrud.h \
     gridlines.h \
+    hakkinda.h \
     mainwindow.h \
     popMenus.h \
     popupmenu.h \

@@ -224,77 +224,24 @@ void toolKalem::sagSolHizala()
 }
 
 void toolKalem::infoButtonClick(){
-    QMessageBox msgBox;
-    msgBox.setText("Bu uygulama etkileşimli tahtalarda kullanılmak üzere yazılmıştır."
-                   "\n"
-                   "\nYapılabilecek Eylemler:"
-                   "\n\t* Çeşitli Kalem(Normal, Fosforlu)"
-                   "\n\t* Tahta Rengi (Şeffaf, Beyaz, Siyah,Özel Renk)"
-                   "\n\t* Tahta Desenleri(Yatay/Dikey Çizgi, Müzik,GüzelYazi)"
-                   "\n\t* Otomatik Silgi Seçimi(Kalem Kalınlığına Uygun)"
-                   "\n\t* Ekranda Taşıma Özelliği"
-                   "\n\t* Tam Ekran Modunda Çalışmalarda Üstte Konumlanma"
-                   "\n\t* Dışarıdan Arkaplan Resim Yükleme Özelliği"
-                   "\n\t* Ekran Görüntüsünü Kaydetme Özelliği"
-                   "\n\t* Geometrik Şekil Seçme,Taşıma,Boyutlandırma Özelliği"
-                   "\n\t* Farklı Sanal Masaüstünde Çalışma Özelliği"
-                   "\n\t* Geri ileri Alma Özelliği"
-                   "\n\t* Ekranın Her Alanına Yazma Özelliği"
-                   "\n\t* Pdf Dosyaları Yükleme ve Çalışma Kaydetme Özelliği"
-                   "\n\t* Nesne Olarak Resim Ekleme Özelliği"
-                   "\n\t* Yazdırma Özelliği"
-                   "\n\t* Ekranın Bölgesini (Kesme,Taşıma,Büyültme) Özelliği"
-                   "\n\t* Kullanıcı Ayarlarını Kaydetme ve Açma Özelliği"
-                   "\n\t* Sınavlar için Sayaç Özelliği"
-                   "\n*****************************************************************************"
-                   "\n   Copyright (C) 2023 by Bayram KARAHAN                                    "
-                   "\n\tgithub.com/bayramkarahan/E-Tahta"
-                   "\n\tbayramkarahan.blogspot.com"
-                   "\n\tbayramk@gmail.com  "
-                    "\n\n   This program is free software; you can redistribute it and/or modify    "
-                    "\n   it under the terms of the GNU General Public License as published by    "
-                    "\n   the Free Software Foundation; either version 3 of the License, or       "
-                    "\n   (at your option) any later version.                                     "
-                    "\n                                                                           "
-                    "\n   This program is distributed in the hope that it will be useful,         "
-                    "\n   but WITHOUT ANY WARRANTY; without even the implied warranty of          "
-                    "\n   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the           "
-                    "\n   GNU General Public License for more details.                            "
-                    "\n                                                                           "
-                    "\n   You should have received a copy of the GNU General Public License       "
-                    "\n   along with this program; if not, write to the                          "
-                    "\n   Free Software Foundation, Inc.,                                         "
-                    "\n   51 Franklin Street, Fifth Floor, Boston, MA  02110-1301  USA .          "
-
-                   );
-    msgBox.setWindowTitle("smartboard 1.0");
-    QFont ff( "Arial", 10, QFont::Normal);
-    msgBox.setFont(ff);
+    //emit kalemModeSignal(Scene::Mode::PdfMode,DiagramItem::DiagramType::NoType);
 
 
-    msgBox.setStandardButtons(QMessageBox::Ok);
-    Qt::WindowFlags flags = 0;
-    flags |= Qt::Window;
-    flags |= Qt::X11BypassWindowManagerHint;
-    flags |= Qt::CustomizeWindowHint;
-     current_toolTahta->setWindowFlags(flags);
+        Hakkinda *hakkinda=new Hakkinda(parentw*0.90,parenth*0.75);
+        connect(hakkinda, SIGNAL(hakkindaCloseSignal()),
+                this, SLOT(promterCloseSignalSlot()));
 
-    flags = 0;
-    flags |= Qt::Window;
+        hakkinda->move(parentw/2-hakkinda->width()/2,parenth/2-hakkinda->height()/2);
+        Qt::WindowFlags flags = 0;
+        flags |= Qt::FramelessWindowHint;
+        //flags |= Qt::X11BypassWindowManagerHint;
+        hakkinda->setWindowFlags(flags);
+        hakkinda->show();
 
-    //  QColorDialog abc;
-    msgBox.setWindowFlags(flags);
-
-
-
-    //msgBox.setDefaultButton(QMessageBox::Save);
-    msgBox.exec();
-    //   kalemEgitim();
-    flags |= Qt::Window;
-    flags |= Qt::X11BypassWindowManagerHint;
-    flags |= Qt::WindowStaysOnTopHint;
-    current_toolTahta->setWindowFlags(flags);
-     current_toolTahta->show();
+        current_toolTahta->hide();
+        current_toolKalemMenu->hide();
+        current_toolPageMenu->hide();
+        this->hide();
 
 
 }

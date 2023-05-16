@@ -25,6 +25,7 @@
 #include<QSlider>
 #include<toolkalemmenu.h>
 #include<toolpagemenu.h>
+#include<hakkinda.h>
 
 class QMouseEvent;
 class toolKalem : public QFrame

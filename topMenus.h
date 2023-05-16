@@ -844,6 +844,27 @@ QWidget *toolKalem::fenTopMenu(int _boy)
         emit kalemZeminModeSignal(DiagramItem::DiagramType::WhitePage);
         handButtonSlot(false);
     });
+    QPushButton *fendnarnaButton=new QPushButton();
+    fendnarnaButton=butonSlot(fendnarnaButton,"",":icons/fendnarna.svg",QColor(255,0,0,0),e,b,e,b);
+    connect(fendnarnaButton, &QPushButton::clicked, [=]() {
+        addObjectScene(":icons/fendnarna.svg",Scene::Mode::FenMode,DiagramItem::DiagramType::Resim,parenth*0.8,parenth*0.8,parentw*0.1,parenth*0.07,true);
+        emit kalemZeminModeSignal(DiagramItem::DiagramType::WhitePage);
+        handButtonSlot(false);
+    });
+    QPushButton *fenphscaleButton=new QPushButton();
+    fenphscaleButton=butonSlot(fenphscaleButton,"",":icons/fenphscale.svg",QColor(255,0,0,0),e,b,e,b);
+    connect(fenphscaleButton, &QPushButton::clicked, [=]() {
+        addObjectScene(":icons/fenphscale.svg",Scene::Mode::FenMode,DiagramItem::DiagramType::Resim,parenth*0.8,parenth*0.8,parentw*0.1,parenth*0.07,true);
+        emit kalemZeminModeSignal(DiagramItem::DiagramType::WhitePage);
+        handButtonSlot(false);
+    });
+    QPushButton *fenmevsimButton=new QPushButton();
+    fenmevsimButton=butonSlot(fenmevsimButton,"",":icons/fenmevsim.svg",QColor(255,0,0,0),e,b,e,b);
+    connect(fenmevsimButton, &QPushButton::clicked, [=]() {
+        addObjectScene(":icons/fenmevsim.svg",Scene::Mode::FenMode,DiagramItem::DiagramType::Resim,parenth*0.8,parenth*0.8,parentw*0.1,parenth*0.07,true);
+        emit kalemZeminModeSignal(DiagramItem::DiagramType::WhitePage);
+        handButtonSlot(false);
+    });
     QLabel *periyodikcetvelLabel=new QLabel("Periyodik Tablo");      periyodikcetvelLabel->setFont(ff);
     QLabel *hidrojenLabel=new QLabel("Hidrojen");      hidrojenLabel->setFont(ff);
     QLabel *oksijenLabel=new QLabel("Oksijen");      oksijenLabel->setFont(ff);
@@ -851,6 +872,9 @@ QWidget *toolKalem::fenTopMenu(int _boy)
     QLabel *fenayLabel=new QLabel("Ay Evresi");      fenayLabel->setFont(ff);
     QLabel *fenkanLabel=new QLabel("Kan Dolaşımı");      fenkanLabel->setFont(ff);
     QLabel *fenhucreLabel=new QLabel("Hücre Yapısı");      fenhucreLabel->setFont(ff);
+    QLabel *fendnarnaLabel=new QLabel("Dna Rna");      fendnarnaLabel->setFont(ff);
+    QLabel *fenphscaleLabel=new QLabel("Ph Çizelgesi");      fenphscaleLabel->setFont(ff);
+    QLabel *fenmevsimLabel=new QLabel("Mevsim Döngüsü");      fenmevsimLabel->setFont(ff);
 
     auto layout = new QGridLayout(menu);
     layout->setContentsMargins(5, 3, 5, 1);
@@ -860,7 +884,10 @@ QWidget *toolKalem::fenTopMenu(int _boy)
     layout->addWidget(azotButton, 0, 4,1,1,Qt::AlignHCenter);
     layout->addWidget(fenayButton, 0, 10,1,1,Qt::AlignHCenter);
     layout->addWidget(fenkanButton, 0, 11,1,1,Qt::AlignHCenter);
-    layout->addWidget(fenhucreButton, 0, 12,1,1,Qt::AlignHCenter);
+    layout->addWidget(fenhucreButton, 0, 15,1,1,Qt::AlignHCenter);
+    layout->addWidget(fendnarnaButton, 0, 16,1,1,Qt::AlignHCenter);
+    layout->addWidget(fenphscaleButton, 0, 17,1,1,Qt::AlignHCenter);
+    layout->addWidget(fenmevsimButton, 0, 18,1,1,Qt::AlignHCenter);
 
     layout->addWidget(periyodikcetvelLabel,1,1,1,1,Qt::AlignHCenter);
     layout->addWidget(hidrojenLabel,1,2,1,1,Qt::AlignHCenter);
@@ -868,7 +895,10 @@ QWidget *toolKalem::fenTopMenu(int _boy)
     layout->addWidget(azotLabel,1,4,1,1,Qt::AlignHCenter);
     layout->addWidget(fenayLabel,1,10,1,1,Qt::AlignHCenter);
     layout->addWidget(fenkanLabel,1,11,1,1,Qt::AlignHCenter);
-    layout->addWidget(fenhucreLabel,1,12,1,1,Qt::AlignHCenter);
+    layout->addWidget(fenhucreLabel,1,15,1,1,Qt::AlignHCenter);
+    layout->addWidget(fendnarnaLabel,1,16,1,1,Qt::AlignHCenter);
+    layout->addWidget(fenphscaleLabel,1,17,1,1,Qt::AlignHCenter);
+    layout->addWidget(fenmevsimLabel,1,18,1,1,Qt::AlignHCenter);
 
     //  layout->setColumnStretch(6, 255);
     //menu->setFixedSize(QSize(e*10,b*2));

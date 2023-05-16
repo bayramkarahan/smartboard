@@ -95,5 +95,8 @@
         <file>icons/fenhucre.svg</file>
         <file>icons/fenay.jpg</file>
         <file>icons/haritaturizm.png</file>
+        <file>icons/fenmevsim.svg</file>
+        <file>icons/fenphscale.svg</file>
+        <file>icons/fendnarna.svg</file>
     </qresource>
 </RCC>
