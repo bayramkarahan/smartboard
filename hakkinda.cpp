@@ -14,8 +14,8 @@ Hakkinda::Hakkinda(int w, int h, QWidget *parent)
     mainlayout->setAlignment(Qt::AlignCenter);
     mainlayout->setMargin(0);
     //mainlayout->addWidget(ml);*/
-    setObjectName("promter");
-    setStyleSheet("QWidget#promter{"
+    setObjectName("hakkinda");
+    setStyleSheet("QWidget#hakkinda{"
                   "border: 2px solid rgb(53, 132, 228);"
                   "border-radius: 5px;"
                   "background-color:rgba(250,250,250,255);"
@@ -25,14 +25,31 @@ Hakkinda::Hakkinda(int w, int h, QWidget *parent)
     int en=w/20;
     int boy=h/20;
     //qDebug()<<en<<boy;
+/************************************************************************/
+    QPainterPath path;
+    path.addRoundedRect(this->rect(), 5,5);//border-radius value:5 refer
+    this->setMask(path.toFillPolygon().toPolygon());
 
+    baslik=new QLabel(this);
+    baslik->setText("Bilgi ve İleşim Bilgileri");
+    baslik->setObjectName("baslik");
+    baslik->setFixedSize(this->width()-4,boy*0.9);
+    baslik->move(2,2);
+    baslik->setAlignment(Qt::AlignCenter);
+    int fnt=10;
+    baslik->setStyleSheet("font-size:"+QString::number(fnt)+"px; border: 0.5px solid rgba(230, 220, 230,100);"
+                          "border-radius: 5px;"
+                                                            "background: rgba(0, 0, 0,30);");
+                          //"background: qradialgradient(cx:0.5, cy:0.5, radius: 2.5,"
+                          //"fx:0.5, fy:0.5, stop:0 white, stop:1 gray);");
+/************************************************************************/
 QLabel *hakkindaLabel=new QLabel(this);
 QFont ff( "Arial", 10, QFont::Normal);
 hakkindaLabel->setFont(ff);
 //hakkindaLabel->hide();
-hakkindaLabel->setFixedSize(w*0.4,h*0.8);
-hakkindaLabel->move(width()/2-hakkindaLabel->width()/2,height()/2-hakkindaLabel->height()/2);
-//hakkindaLabel->setStyleSheet("qproperty-alignment: AlignCenter;");
+hakkindaLabel->setFixedSize(w*0.9,h*0.95);
+hakkindaLabel->move(w/2-hakkindaLabel->width()/2,h/2-hakkindaLabel->height()/2+baslik->height()/2);
+//hakkindaLabel->setStyleSheet("background: rgba(0, 0, 0,30);");
 
 //hakkindaLabel->show();
 hakkindaLabel->setText("Bu uygulama etkileşimli tahtalarda kullanılmak üzere yazılmıştır."
@@ -58,7 +75,7 @@ hakkindaLabel->setText("Bu uygulama etkileşimli tahtalarda kullanılmak üzere 
                "\n\t* Sınavlar için Sayaç Özelliği"
                "\n*****************************************************************************"
                "\n   Copyright (C) 2023 by Bayram KARAHAN                                    "
-               "\n\tgithub.com/bayramkarahan/E-Tahta"
+               "\n\tgithub.com/bayramkarahan/smartboard"
                "\n\tbayramkarahan.blogspot.com"
                "\n\tbayramk@gmail.com  "
                 "\n\n   This program is free software; you can redistribute it and/or modify    "
@@ -80,7 +97,7 @@ hakkindaLabel->setText("Bu uygulama etkileşimli tahtalarda kullanılmak üzere 
 
 
 QPushButton *sayacExitButton= new QPushButton(this);
-sayacExitButton->setFixedSize(en*0.5, boy*1);
+sayacExitButton->setFixedSize(en, boy*1);
 sayacExitButton->setIconSize(QSize(en*1,boy*1));
 sayacExitButton->setFlat(true);
 sayacExitButton->setIcon(QIcon(":icons/exit.svg"));

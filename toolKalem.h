@@ -95,6 +95,8 @@ signals:
 public slots:
     void sayacCloseSignalSlot();
     void promterCloseSignalSlot();
+    void hakkindaCloseSignalSlot();
+
     void handButtonSlot(bool menushow);
     void penButtonSlot(bool menushow);
     void smartpenButtonSlot(bool menushow);

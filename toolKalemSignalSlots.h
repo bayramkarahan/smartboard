@@ -178,6 +178,15 @@ current_toolKalemMenu->show();
 current_toolPageMenu->show();
 this->show();
 }
+void toolKalem::hakkindaCloseSignalSlot()
+{
+qDebug()<<"Hakkında Kapandı..";
+current_toolTahta->show();
+current_toolKalemMenu->show();
+current_toolPageMenu->show();
+this->show();
+}
+
 void toolKalem::kalemZeminModeSignalSlot(DiagramItem::DiagramType type)
 {
 

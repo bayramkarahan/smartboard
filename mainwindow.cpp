@@ -23,8 +23,8 @@ MainWindow::MainWindow(QWidget *parent) :
     curent_pageMenu=new toolPageMenu(new QWidget(),screenSize.width()*0.85,screenSize.height()*0.045);
     //curent_pageMenu=new toolPageMenu(kw->pageBottomMenu(screenSize.height()*0.045),screenSize.width()*0.85,screenSize.height()*0.045);
     /******************************************************************************/
-    kw=new toolKalem("Kalem",en*0.55,boy*0.7,current_toolTahta,current_toolKalemMenu,curent_pageMenu,screenSize.width(),screenSize.height());
-    kw->setFixedSize(en*1.0,boy*0.75*11);
+    kw=new toolKalem("Kalem",en*0.45,boy*0.7,current_toolTahta,current_toolKalemMenu,curent_pageMenu,screenSize.width(),screenSize.height());
+    kw->setFixedSize(en*0.85,boy*0.75*11);
     kw->sagSolHizala();
     // kw->move(screenSize.width()-kw->width()-10,screenSize.height()/2- kw->height()/2);
     // kw->setStyleSheet("background-color:rgb(220, 220, 220);");

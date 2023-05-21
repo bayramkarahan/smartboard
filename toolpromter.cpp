@@ -32,6 +32,24 @@ toolPromter::toolPromter(int w, int h, QWidget *parent)
     int en=w/20;
     int boy=h/20;
     //qDebug()<<en<<boy;
+    /************************************************************************/
+        QPainterPath path;
+        path.addRoundedRect(this->rect(), 5,5);//border-radius value:5 refer
+        this->setMask(path.toFillPolygon().toPolygon());
+
+        baslik=new QLabel(this);
+        baslik->setText("Okuyucu");
+        baslik->setObjectName("baslik");
+        baslik->setFixedSize(this->width()-4,boy);
+        baslik->move(2,2);
+        baslik->setAlignment(Qt::AlignCenter);
+        int fnt=10;
+        baslik->setStyleSheet("font-size:"+QString::number(fnt)+"px; border: 0.5px solid rgba(230, 220, 230,100);"
+                              "border-radius: 5px;"
+                                                                "background: rgba(0, 0, 0,30);");
+                              //"background: qradialgradient(cx:0.5, cy:0.5, radius: 2.5,"
+                              //"fx:0.5, fy:0.5, stop:0 white, stop:1 gray);");
+    /************************************************************************/
 
     QTimer  *saat = new QTimer(this);
     connect(saat, SIGNAL(timeout()), this, SLOT(saatslot()));
@@ -93,7 +111,7 @@ toolPromter::toolPromter(int w, int h, QWidget *parent)
     QWidget *butongrub=new QWidget(this);
     butongrub->setFixedSize(en*10, boy*2.5);
     butongrub->move(this->width()/2-butongrub->width()/2,this->height()-butongrub->height()*1);
-
+    QPushButton *sayacPauseButton= new QPushButton(butongrub);
     QPushButton *sayacStartButton= new QPushButton(butongrub);
     sayacStartButton->hide();
     sayacStartButton->setFixedSize(en*2, boy*2);
@@ -105,15 +123,17 @@ toolPromter::toolPromter(int w, int h, QWidget *parent)
     sayacStartButton->show();
 
     connect(sayacStartButton, &QPushButton::clicked, [=]() {
-        sure->hide();
-        suresayacLabel->hide();
-        text->hide();
-        sayacStartButton->hide();
+        //sure->hide();
+        //suresayacLabel->hide();
+        //text->hide();
+        startStatus=true;
+        sayacStartButton->setEnabled(false);
+        sayacPauseButton->setEnabled(true);
         timerText->start(sure->value());
     });
 
 
-    QPushButton *sayacPauseButton= new QPushButton(butongrub);
+   // sayacPauseButton= new QPushButton(butongrub);
     sayacPauseButton->hide();
     sayacPauseButton->setFixedSize(en*2, boy*2);
     sayacPauseButton->setIconSize(QSize(en*2,boy*2));
@@ -121,12 +141,15 @@ toolPromter::toolPromter(int w, int h, QWidget *parent)
     sayacPauseButton->setIcon(QIcon(":icons/stopsayac.svg"));
     sayacPauseButton->move(en*6,0);
     sayacPauseButton->show();
+    sayacPauseButton->setEnabled(false);
     connect(sayacPauseButton, &QPushButton::clicked, [=]() {
         timerText->stop();
-        sure->show();
-        suresayacLabel->show();
-        text->show();
-        sayacStartButton->show();
+       // sure->show();
+        //suresayacLabel->show();
+       // text->show();
+        startStatus=false;
+        sayacStartButton->setEnabled(true);
+        sayacPauseButton->setEnabled(false);
     });
 
 
@@ -202,8 +225,9 @@ void toolPromter::setSure(int value)
 {
     suresayac=value;
     suresayacLabel->setText("Süre: "+QString::number(suresayac));
-    //timerText->stop();
-    //timerText->start(sure->value());
+    timerText->stop();
+
+    if(startStatus) timerText->start(sure->value());
 }
 
 void toolPromter::paintEvent(QPaintEvent *pe)

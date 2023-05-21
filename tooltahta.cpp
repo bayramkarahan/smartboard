@@ -274,8 +274,8 @@ int myPenSize=scene->myPenSize;
         // pnt.drawPolyline();
 
         pnt.drawEllipse(rect);
-        pnt.setRenderHint(QPainter::Antialiasing, true);
-        pnt.setRenderHint(QPainter::SmoothPixmapTransform, true);
+        pnt.setRenderHint(QPainter::Antialiasing);
+        pnt.setRenderHint(QPainter::SmoothPixmapTransform);
 
         pnt.end();
         QMatrix rm;

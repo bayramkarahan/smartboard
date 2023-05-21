@@ -212,12 +212,12 @@ void toolKalem::sagSolHizala()
 {
     if (!sagSolHizaStatus)
     {
-        move(parentw-this->width()-10,parenth/2- this->height()/2);
+        move(parentw-this->width()-5,parenth/2- this->height()/2);
        if(sagSolHizaStatusInit) sagSolHizaStatus=true;
        sagSolHizaStatusInit=true;
     }else
     {
-        move(10,parenth/2- this->height()/2);
+        move(5,parenth/2- this->height()/2);
         sagSolHizaStatus=false;
     }
 
@@ -227,22 +227,22 @@ void toolKalem::infoButtonClick(){
     //emit kalemModeSignal(Scene::Mode::PdfMode,DiagramItem::DiagramType::NoType);
 
 
-        Hakkinda *hakkinda=new Hakkinda(parentw*0.90,parenth*0.75);
+        Hakkinda *hakkinda=new Hakkinda(parentw*0.40,parenth*0.9);
         connect(hakkinda, SIGNAL(hakkindaCloseSignal()),
-                this, SLOT(promterCloseSignalSlot()));
+                this, SLOT(hakkindaCloseSignalSlot()));
 
         hakkinda->move(parentw/2-hakkinda->width()/2,parenth/2-hakkinda->height()/2);
         Qt::WindowFlags flags = 0;
         flags |= Qt::FramelessWindowHint;
         //flags |= Qt::X11BypassWindowManagerHint;
         hakkinda->setWindowFlags(flags);
-        hakkinda->show();
+
 
         current_toolTahta->hide();
         current_toolKalemMenu->hide();
         current_toolPageMenu->hide();
         this->hide();
-
+hakkinda->show();
 
 }
 
