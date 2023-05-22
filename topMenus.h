@@ -1124,8 +1124,8 @@ QWidget *toolKalem::eraseTopMenu(int _boy)
     QPushButton *silMenuButton=new QPushButton();
   //  silMenuButton->setFixedSize(e, b);
     //silMenuButton->setIconSize(QSize(e,b));
-   // silMenuButton=butonToolSlot(silMenuButton,"Silgi",":icons/erase.png",QColor(255,0,0,0),en*1.5,boy);
-    silMenuButton=butonSlot(silMenuButton,"",":icons/erase.png",QColor(255,0,0,0),e,b,e,b);
+   // silMenuButton=butonToolSlot(silMenuButton,"Silgi",":icons/erase.svg",QColor(255,0,0,0),en*1.5,boy);
+    silMenuButton=butonSlot(silMenuButton,"",":icons/erase.svg",QColor(255,0,0,0),e,b,e,b);
 
     connect(silMenuButton, &QPushButton::clicked, [=]() {
         //qDebug()<<b;
@@ -1135,7 +1135,7 @@ QWidget *toolKalem::eraseTopMenu(int _boy)
     QPushButton *temizleMenuButton=new QPushButton();
    // temizleMenuButton->setFixedSize(e, b);
     //temizleMenuButton->setIconSize(QSize(e,b));
-     temizleMenuButton=butonSlot(temizleMenuButton,"",":icons/clear.png",QColor(255,0,0,0),e,b,e,b);
+     temizleMenuButton=butonSlot(temizleMenuButton,"",":icons/clear.svg",QColor(255,0,0,0),e,b,e,b);
 
     connect(temizleMenuButton, &QPushButton::clicked, [=]() {
       //  emit kalemModeSignal(Scene::Mode::ZeminMode,DiagramItem::DiagramType::TransparanPage);

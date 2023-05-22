@@ -108,7 +108,7 @@ void toolKalem::clearButtonSlot()
 void toolKalem::eraseButtonSlot()
 {
     buttonStateClear();eraseButton->setChecked(true);
-    current_toolKalemMenu->toolKalemMenuOlustur(eraseTopMenu(parenth*0.045),parentw*0.2,parenth*0.045,parentw,parenth);
+    current_toolKalemMenu->toolKalemMenuOlustur(eraseTopMenu(parenth*0.045),parentw*0.3,parenth*0.045,parentw,parenth);
     current_toolKalemMenu->show();
     current_toolTahta->scene->setEraseSize(penSize);
     current_toolTahta->scene->sceneMode=Scene::Mode::EraseMode;
