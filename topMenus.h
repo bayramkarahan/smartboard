@@ -1698,8 +1698,8 @@ QWidget* toolKalem::sekilTopMenu(int _boy)
   //colorWidget
   QGridLayout *renkloyout = new QGridLayout;
 
-  QWidget *cw=colorWidget("sekilZeminColor","yatay",en*0.8,boy,false);
-  cw->setFixedSize(en*10,boy*0.7);
+  QWidget *cw=colorWidget("sekilZeminColor","yatay",en*1,boy,false);
+  cw->setFixedSize(en*12,boy*0.7);
   cw->setVisible(true);
   renkloyout->addWidget(cw, 0,0,1,1,Qt::AlignHCenter);
   QLabel *renk= new QLabel("Şekil Dolgu Rengi");      renk->setFont(ff);

@@ -98,5 +98,8 @@
         <file>icons/fenmevsim.svg</file>
         <file>icons/fenphscale.svg</file>
         <file>icons/fendnarna.svg</file>
+        <file>icons/noktalikagit.png</file>
+        <file>icons/karelikagit.png</file>
+        <file>icons/izometrikkagit.png</file>
     </qresource>
 </RCC>

@@ -480,8 +480,9 @@ void toolKalem::saveSayfaButtonClick(){
      {
          QPixmap pg;
          if(DiagramItem::DiagramType::CizgiliKagit==type){
-         GridLines *gridLines = new GridLines (width(), height(),60,true,false,false,zeminDolguColor, penColor);
+         GridLines *gridLines = new GridLines (width(), height(),gridSize,true,false,false,zeminDolguColor, penColor);
          pg=gridLines->PixItem(gridLines,width(), height());
+
          }else
              pg = QPixmap(dosya);
          QPixmap tmp(pg.width(),pg.height());
